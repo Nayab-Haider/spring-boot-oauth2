@@ -20,12 +20,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         resources.resourceId(resourceId).stateless(false);
     }
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http
-                .anonymous().disable()
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
-    }
 }
